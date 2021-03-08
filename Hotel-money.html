@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hotel of Cash</h1>
+    <table>
+      <tr>
+        <th>Check in</th>
+        <th>Check out</th>
+        <th>Room type</th>
+      </tr>
+      <tr>
+        <td>
+          <input id="checkin" type="text" placeholder=" Month, Day, Year " />
+        </td>
+        <td>
+          <input id="checkout" type="text" placeholder=" Month, Day,Year " />
+        </td>
+        <td><input id="room" placeholder=" Type A, B, C" type="text" /></td>
+        <td><button onclick="myFunction()">Check money</button></td>
+      </tr>
+    </table>
+    <h2 id="cash"></h2>
+
+    <script>
+      function myFunction() {
+        
+
+        var dayin = document.getElementById("checkin").value;
+        var dayout = document.getElementById("checkout").value;
+
+        var d1 = new Date(dayin);
+        var d2 = new Date(dayout);
+
+        var DateDiff = {
+          inDays: function (d1, d2) {
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+
+            return parseInt((t2 - t1) / (24 * 3600 * 1000));
+          },
+        };
+
+        
+        //    document.write(DateDiff.inDays(d1, d2));//so ngay chenh lech
+        
+        var cash;     
+if(DateDiff.inDays(d1, d2)>7){
+    if(document.getElementById("room").value=="A" ||document.getElementById("room").value=="a"){
+          cash= DateDiff.inDays(d1, d2)*500;
+        }
+    if(document.getElementById("room").value=="B" ||document.getElementById("room").value=="b"){
+          cash= DateDiff.inDays(d1, d2)*450;
+        }
+    if(document.getElementById("room").value=="C" ||document.getElementById("room").value=="c"){
+          cash= DateDiff.inDays(d1, d2)*350;
+        }
+    cash=cash*90/100;
+    document.getElementById("cash").innerHTML=`Cash is discount 10%: ${cash}.000 VNĐ`;   
+    }
+    else{
+        if(document.getElementById("room").value=="A" ||document.getElementById("room").value=="a"){
+          cash= DateDiff.inDays(d1, d2)*500;
+        }
+    if(document.getElementById("room").value=="B" ||document.getElementById("room").value=="b"){
+          cash= DateDiff.inDays(d1, d2)*450;
+        }
+    if(document.getElementById("room").value=="C" ||document.getElementById("room").value=="c"){
+          cash= DateDiff.inDays(d1, d2)*350;
+        }  
+    document.getElementById("cash").innerHTML=`Cash is: ${cash}.000 VNĐ`;   
+    } 
+    
+     
+     
+     
+      
+    
+}   
+
+    </script>
+  </body>
+</html>
