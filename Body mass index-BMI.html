@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI</title>
+  </head>
+  <body>
+    <h1>Check your body</h1>
+    <table>
+      <tr>
+        <th>In put your height</th>
+        <th>In put your weight</th>
+      </tr>
+      <tr>
+        <td><input placeholder="...Cm" id="height" type="text" /></td>
+        <td><input placeholder="...Kg" id="weight" type="text" /></td>
+        <td><button onclick="check()" value="">Check here</button></td>
+      </tr>
+    </table>
+    <h2 id="demo"></h2>
+
+    <script>
+      function check() {
+        let height = parseInt(document.getElementById("height").value);
+        let weight = parseInt(document.getElementById("weight").value);
+
+        let bmi = weight /  (  (height/100)*(height/100));
+        
+
+        if (bmi < 18) document.getElementById("demo").innerHTML = `  BMI: ${bmi} <br> Underweight`;
+        else if (bmi < 25.0)
+          document.getElementById("demo").innerHTML = ` BMI: ${bmi} <br> Normal`;
+        else if (bmi < 30.0)
+          document.getElementById("demo").innerHTML = `BMI: ${bmi} <br> Overweight`;
+        else document.getElementById("demo").innerHTML = `BMI: ${bmi } <br> Obese`;
+      }
+    </script>
+  </body>
+</html>
