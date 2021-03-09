@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cacular</title>
+  </head>
+  <body>
     <h1>Cacular</h1>
     <table>
-        <tr>
-            <th> Number1</th>
-            <th>Number 2</th>
-        </tr>
-        <tr>
-            <td><input  id="number1" placeholder="Input number 1" type="text"></td>
-            <td><input  id="number2" placeholder="Input number 2" type="text"></td>
-        </tr>
-        <tr>
-            <td><br></td>
-        </tr>
-        <tr>
-            <td><button onclick="addtion()">Addtions(+)</button></td>
-            <td><button onclick="addtion()">Addtions(+)</button></td>
-            
-        </tr>
+      <tr>
+        <th>Number1</th>
+        <th></th>
+        <th>Number 2</th>
+      </tr>
+      <tr>
+        <td><input id="number1" placeholder="Input number 1" type="text" /></td>
+        <td></td>
+        <td><input id="number2" placeholder="Input number 2" type="text" /></td>
+      </tr>
+      <tr>
+        <td><br /></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button onclick="Addtion()">Addtions(+)</button>
+          <button onclick="Subtraction()">Subtraction(-)</button>
+        </td>
+        <td colspan="2">
+          <button onclick="Mutiplication()">Mutiplication(*)</button>
+          <button onclick="Division()">Division(/)</button>
+        </td>
+      </tr>
     </table>
-   
-    
-</body>
+    <h2 id="result"></h2>
+
+    <script>
+      function Addtion() {
+        let number1 = parseInt(document.getElementById("number1").value);
+        let number2 = parseInt(document.getElementById("number2").value);
+        document.getElementById("result").innerHTML = `Result is: ${
+          number1 + number2
+        }`;
+      }
+      function Subtraction() {
+        let number1 = parseInt(document.getElementById("number1").value);
+        let number2 = parseInt(document.getElementById("number2").value);
+        document.getElementById("result").innerHTML = `Result is: ${
+          number1 - number2
+        }`;
+      }
+      function Mutiplication() {
+        let number1 = parseInt(document.getElementById("number1").value);
+        let number2 = parseInt(document.getElementById("number2").value);
+        document.getElementById("result").innerHTML = `Result is: ${
+          number1 * number2
+        }`;
+      }
+      function Division() {
+        let number1 = parseInt(document.getElementById("number1").value);
+        let number2 = parseInt(document.getElementById("number2").value);
+        document.getElementById("result").innerHTML = `Result is: ${
+          number1 / number2
+        }`;
+      }
+    </script>
+  </body>
 </html>
