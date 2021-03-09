@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-<script>
-function startTime() {
-    var today=new Date();
-    var h=today.getHours();
-    var m=today.getMinutes();
-    var s=today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('txt').innerHTML = h+":"+m+":"+s;
-    var t = setTimeout(function(){startTime()},500);
-}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="date" type="date">
+    <button onclick="getday()">get day </button>
+      <h2 id="demo"></h2>
+    <script>
+      function getday(){
+        document.getElementById("demo").innerHTML=document.getElementById("date").value;
+      }
+      // let d1 = new Date("2021-01-25");
 
-function checkTime(i) {
-    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-}
-</script>
-</head>
-
-<body onload="startTime()">
-
-<div id="txt"></div>
-
-</body>
+      // let d2 = new Date("2021-02-05");
+      //  let day =(d2 - d1) / 1000 / 60 / 60 / 24;
+     
+    </script>
+  </body>
 </html>
-Share

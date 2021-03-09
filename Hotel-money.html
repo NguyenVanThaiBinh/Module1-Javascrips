@@ -16,10 +16,10 @@
       </tr>
       <tr>
         <td>
-          <input id="checkin" type="text" placeholder=" Month, Day, Year " />
+          <input id="checkin" type="date" />
         </td>
         <td>
-          <input id="checkout" type="text" placeholder=" Month, Day,Year " />
+          <input id="checkout" type="date" />
         </td>
         <td><input id="room" placeholder=" Type A, B, C" type="text" /></td>
         <td><button onclick="myFunction()">Check money</button></td>
@@ -29,59 +29,35 @@
 
     <script>
       function myFunction() {
-        
-
         var dayin = document.getElementById("checkin").value;
         var dayout = document.getElementById("checkout").value;
 
         var d1 = new Date(dayin);
         var d2 = new Date(dayout);
 
-        var DateDiff = {
-          inDays: function (d1, d2) {
-            var t2 = d2.getTime();
-            var t1 = d1.getTime();
+        let day = (d2 - d1) / 1000 / 60 / 60 / 24;
+        let room1;
+        let room =document.getElementById("room").value; //lay tra tri type room
+        if(room=="A"|| room=="a")
+        room1=500;
+        if(room=="B"|| room=="b")
+        room1=450;
+        if(room=="C"|| room=="c")
+        room1=350;
 
-            return parseInt((t2 - t1) / (24 * 3600 * 1000));
-          },
-        };
-
+        if(day<7){
+          cash=day*room1;
+        }
+        let week = day/7;
+        week = Math.floor(week);
+        let dayplus = day%7;
+        if(day>=7){
+          cash = (week*7*room1*90/100)+(dayplus*room1);
+        }
+        document.getElementById("cash").innerHTML = `Cash is:${cash}.000 Vnd`;
         
-        //    document.write(DateDiff.inDays(d1, d2));//so ngay chenh lech
-        
-        var cash;     
-if(DateDiff.inDays(d1, d2)>7){
-    if(document.getElementById("room").value=="A" ||document.getElementById("room").value=="a"){
-          cash= DateDiff.inDays(d1, d2)*500;
-        }
-    if(document.getElementById("room").value=="B" ||document.getElementById("room").value=="b"){
-          cash= DateDiff.inDays(d1, d2)*450;
-        }
-    if(document.getElementById("room").value=="C" ||document.getElementById("room").value=="c"){
-          cash= DateDiff.inDays(d1, d2)*350;
-        }
-    cash=cash*90/100;
-    document.getElementById("cash").innerHTML=`Cash is discount 10%: ${cash}.000 VNĐ`;   
-    }
-    else{
-        if(document.getElementById("room").value=="A" ||document.getElementById("room").value=="a"){
-          cash= DateDiff.inDays(d1, d2)*500;
-        }
-    if(document.getElementById("room").value=="B" ||document.getElementById("room").value=="b"){
-          cash= DateDiff.inDays(d1, d2)*450;
-        }
-    if(document.getElementById("room").value=="C" ||document.getElementById("room").value=="c"){
-          cash= DateDiff.inDays(d1, d2)*350;
-        }  
-    document.getElementById("cash").innerHTML=`Cash is: ${cash}.000 VNĐ`;   
-    } 
+      }
     
-     
-     
-     
-      
-    
-}   
 
     </script>
   </body>
