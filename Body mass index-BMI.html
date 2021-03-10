@@ -14,7 +14,7 @@
         <th>In put your weight</th>
       </tr>
       <tr>
-        <td><input placeholder="...Cm" id="height" type="text" /></td>
+        <td><input placeholder="...Meter" id="height" type="text" /></td>
         <td><input placeholder="...Kg" id="weight" type="text" /></td>
         <td><button onclick="check()" value="">Check here</button></td>
       </tr>
@@ -23,10 +23,12 @@
 
     <script>
       function check() {
-        let height = parseInt(document.getElementById("height").value);
-        let weight = parseInt(document.getElementById("weight").value);
+        let height = parseFloat(document.getElementById("height").value);
+        let weight = parseFloat(document.getElementById("weight").value);
+        // document.getElementById("demo").innerHTML = `  BMI: ${height} `;
 
-        let bmi = weight /  (  (height/100)*(height/100));
+        let bmi1 = (weight /  ( height*height)) ;
+         let bmi=bmi1.toFixed(2);
         
 
         if (bmi < 18) document.getElementById("demo").innerHTML = `  BMI: ${bmi} <br> Underweight`;
